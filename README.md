@@ -1,7 +1,7 @@
 #  ORGANIC WEATHER
 
 ## Introduction
-Designed with the latest technology and high-quality components, this organic weather station will provide you with accurate and detailed information about the weather conditions in your environment. It doesn't matter if you are a weather enthusiast or just looking for a reliable tool to track the weather conditions. Intuitive features make our station easy to use and look great in any environment, whether in your home, office or even outdoors. You can have the climate
+Designed with the latest technology and high-quality components, this organic weather station will provide you with accurate and detailed information about the weather conditions in your environment. It doesn't matter if you are a weather enthusiast or just looking for a reliable tool to track the weather conditions. Intuitive features make our station easy to use and look great in any environment, whether in your home, office, or even outdoors. You can have the climate
 under control at all times. Everything is in one place, at your fingertips.
 Change your boring and plain weather station for this new cool and amazing Organic weather that can be placed wherever you want.
 
@@ -14,6 +14,7 @@ Our main objective is to develop a weather station in the form of a plant that c
 - [Electrical components](#electrical-components)
     - [Electronic blueprints](#electronic-blueprints)
 - [Code](#code)
+- [Promotional Video](#Promotional-Video)
     
 
 ## mechanical-components
@@ -22,3 +23,4 @@ Our main objective is to develop a weather station in the form of a plant that c
 ## electrical-components
   ### electronic-blueprints
 ## code
+## Promotional-Video
