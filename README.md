@@ -27,3 +27,6 @@ Our main objective is to develop a weather station in the form of a plant that c
   ### electronic-blueprints
 ## code
 
+
+## test 
+delete me after the test.
