@@ -10,19 +10,20 @@ Our main objective is to develop a weather station in the form of a plant that c
 ![alt text](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/blob/main/Images/first_design.jpg)
 
 ## Readme structure
+- [Promotional Video](#Promotional-Video)
 - [Mechanical components](#mechanical-components)
     - [ 3D printed parts](#3d-printed-parts)
     - [Hardware parts](#hardware-parts)
 - [Electrical components](#electrical-components)
     - [Electronic blueprints](#electronic-blueprints)
 - [Code](#code)
-- [Promotional Video](#Promotional-Video)
-    
 
+    
+## Promotional-Video
 ## mechanical-components
   ### 3d-printed-parts
   ### hardware-parts
 ## electrical-components
   ### electronic-blueprints
 ## code
-## Promotional-Video
+
