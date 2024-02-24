@@ -1,0 +1,23 @@
+Arduino nano ble
+14 I/O
+
+The power supply will come directly from the battery, with the pins Vin and GND that supports a top of 21 V.
+The converter 12V to 5V will supply the servomotor. 
+It will be possible that this converter feeds the LEDs and the fiberoptic.
+
+
+Outputs: 
+	1 PWM servomotor control
+	3 PWM for the control of the three colors of RGB LEDs termometer
+	1 of tqhe fiberoptics
+
+
+
+I2C:
+	DHT22 temp and hum
+	OLED Display
+
+
+
+Inputs:
+	3 analog inputs from the photoresistor
