@@ -23,8 +23,12 @@ Our main objective is to develop a weather station in the form of a plant that c
 ## mechanical-components
 For the movement, we use a mechanism that consists of a worm gear that rotates by a stepper motor, attached to the worm gear are four gears, that have the petals of the plant, these ones rotate and the petals move upside down mimicking the movement of the aperture of a plant in the wild.
 Here below you can see all the parts needed to be able to make this mechanism and an explanation:
-
+GEAR ATTACHED TO THE PETALS, rotates to a certain point for the aperture and closure of the flower
 ![alt text](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/blob/main/Images/Gear1.png)
+WORM GEAR, on the lower end, has a dent to be able to put together the stepper motor for the rotation
+![alt text](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/blob/main/Images/worm_gear1.png)
+HOLDER FOR THE GEARS TO MOVE WITH THE WORM GEAR, this pice holds together on the center the worm gear vertically and in each of the four sites it goes a GEAR with a petal
+![alt text](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/blob/main/Images/shield_2.png)
 
   ### 3d-printed-parts
   ### hardware-parts
