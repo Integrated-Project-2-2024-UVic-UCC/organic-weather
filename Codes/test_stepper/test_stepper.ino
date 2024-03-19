@@ -1,28 +1,30 @@
-#define IN1  8
-#define IN2  9
-#define IN3  10
-#define IN4  11
+#define IN1  14
+#define IN2  27
+#define IN3  26
+#define IN4  25
 
 float current_step = 0.0; //tells the current position in steps referenced at the 0º at the start
 float steps;              //steps needed to achieve the rev_pos, could be negative
 int t = 0;
 
 //for max torque
-int step_torque [4][4] =
+int step_torque [5][4] =
 {
   {1, 1, 0, 0},
   {0, 1, 1, 0},
   {0, 0, 1, 1},
-  {1, 0, 0, 1}
+  {1, 0, 0, 1},
+  {0, 0, 0, 0}
 };
 
 //for equilibrate torque/consume
-int step_eq [4][4] =
+int step_eq [5][4] =
 {
   {1, 0, 0, 0},
   {0, 1, 0, 0},
-  {0, 0, 1,0},
-  {1, 0, 0, 1}
+  {0, 0, 1, 0},
+  {1, 0, 0, 1},
+  {0, 0, 0, 0}
 };
 
 void position(float rev_pos){
@@ -47,7 +49,7 @@ void position(float rev_pos){
         Serial.println(t);
         t++;
       }
-    }
+    }    
     current_step+=t;
     t=0;
     Serial.print("Current step: ");
@@ -75,6 +77,12 @@ void position(float rev_pos){
     Serial.println(current_step);
     delay(1000);
   }
+
+  //turn of all the bobines
+  digitalWrite(IN1, step_eq[4][0]);
+  digitalWrite(IN2, step_eq[4][1]);
+  digitalWrite(IN3, step_eq[4][2]);
+  digitalWrite(IN4, step_eq[4][3]); 
 }
  
 void setup(){
