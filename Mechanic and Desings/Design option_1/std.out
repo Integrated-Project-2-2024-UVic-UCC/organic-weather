@@ -1,0 +1,14 @@
+License request failed for feature
+
+Requesting CREOPMA_Student6 ...
+C:\ProgramData\PTC\Licensing\BK600908EDSTUDENTEDUNI_license.dat: (-10) Feature has expired.
+
+Displaying status for license file: C:\ProgramData\PTC\Licensing\BK600908EDSTUDENTEDUNI_license.dat
+                       License    In Use   Free   Version    Expire Date Days Remaining     SCN 
+                       -------    ------   ----   -------    ----------- --------------    -----
+              CREOPMA_Student6       Uncounted      37.0     20-aug-2021    Expiried           Student6 Locked to: D0-7E-35-DA-7C-C1
+              CREODMA_Student3       Uncounted      37.0     20-aug-2021    Expiried           Student3 Locked to: D0-7E-35-DA-7C-C1
+              CREOLAY_Student3       Uncounted      37.0     20-aug-2021    Expiried           Student3 Locked to: D0-7E-35-DA-7C-C1
+            CREOILLUS_STANDARD       Uncounted       6.0     20-aug-2021    Expiried           STANDARD Locked to: D0-7E-35-DA-7C-C1
+
+
