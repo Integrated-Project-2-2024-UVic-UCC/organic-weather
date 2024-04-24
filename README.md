@@ -61,8 +61,8 @@ HOLDER FOR THE GEARS TO MOVE WITH THE WORM GEAR, this piece holds together the c
   - LEDs RGB
   - DHT22 humidity and temperature sensor
   ### Electric scheme
-  |[Schematic_Weather_Station](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/assets/148632510/8155c4e1-e35f-4c48-a91c-fe21f4f4bea0)
-  [![Electric Scheme](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/blob/main/Electronic/Schematics/Schematic_Weather_Station.png)](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/tree/main/Electronic/Schematics)
+  ![Schematic_Weather_Station](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/assets/148632510/ed1f33c1-2df0-4c84-ae69-e56b52e85f7e))
+  [![Electric Scheme]([https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/blob/main/Electronic/Schematics/Schematic_Weather_Station.png](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/blob/main/Electronic/Schematics/Schematic_Integrated%20Project_2024-04-24.png))](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/tree/main/Electronic/Schematics)
 
   
 ## PROGRAMMING PART
