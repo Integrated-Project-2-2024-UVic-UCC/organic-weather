@@ -6,35 +6,37 @@ The "Organic Weather Station" blends botanical aesthetics with robotics, creatin
 - **Environmental Feedback**: Responds to light intensity data from photodiodes, controlling the movement of its petals to mimic natural responses.
 - **Remote Weather Updates**: Connects with a Telegram chat to retrieve and display weather conditions from any specified location.
 - **Ambient LED Effects**: Incorporates LEDs within the petals that shift colors based on the ambient room temperature.
+
 Because it is still in process, below you can see the layout of the plant:
 ![image](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/assets/148632510/3a7dbbe2-9f96-4733-8f5a-11ae46fb1943)
+If you are interested in carrying out this project, we invite you to the following sections!
 
-
-## Promotional-Video
-
-## Introduction
-Designed with the latest technology and high-quality components, this organic weather station will provide you with accurate and detailed information about the weather conditions in your environment. It doesn't matter if you are a weather enthusiast or just looking for a reliable tool to track the weather conditions. Intuitive features make our station easy to use and look great in any environment, whether in your home, office or even outdoors. You can have the climate
-under control at all times. Everything is in one place, at your fingertips.
-Change your boring and plain weather station for this new cool and amazing Organic weather that can be placed wherever you want.
-
-Our main objective is to develop a weather station in the form of a plant that can be more appealing to the users, that receive the external inputs of the environment near the station using the sensors and use this data to interact with the mechanical parts of the plant and displaying all the information on the LCD screen to be more understandable for the user.
-
-![alt text](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/blob/main/Images/first_design.jpg)
-
-## Readme structure
-- [Materials](#mechanical-components)
-- [Mechanical components](#mechanical-components)
+## README STRUCTURE
+- [Materials](#materials)
+- [Mechanical part](#mechanical-part)
     - [ 3D printed parts](#3d-printed-parts)
     - [Hardware parts](#hardware-parts)
-- [Electrical components](#electrical-components)
-    - [Electronic blueprints](#electronic-blueprints)
-- [Code](#code)
+- [Electrical Part](#electrical-part)
+    - [Datasheets](#datasheets)
+    - [Electric scheme](#electric-scheme)
+- [Programming Part](#programming-part)
 
     
-## Materials
+## MATERIALS
+Before starting with the mechanical part, we will show you the list of materials that have been used and the links where you can buy it:
+|Component|Description|Link|Price (€)|
+|---|---|---|---|
+|![image](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/assets/148632510/175b6df2-47b3-4d7a-a043-f7cd1067a346) |ESP32-DEVKITC-32UE, MAIN SHIELD |(https://www.digikey.es/es/products/detail/espressif-systems/ESP32-DEVKITC-32UE/12091813) |9,23 €|
+|![image](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/assets/148632510/90ea6707-07f6-4620-b829-95b92183f802) |TFT LCD 3.2″ 240×320 RGB SPI Display with Touchscreen| https://protosupplies.com/product/tft-lcd-3-2-240x320-rgb-spi-display-with-touchscreen/ | 17,7 €|
+|![image](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/assets/148632510/9e236e71-0359-471f-8cdb-d2269f496330) |Stepper motor 28BYJ-48 (5V) with ULN2003 driver|https://tienda.bricogeek.com/motores-paso-a-paso/969-motor-paso-a-paso-28byj-48-5v-con-driver-uln2003.html?gad_source=1&gclid=Cj0KCQiA84CvBhCaARIsAMkAvkLmYwUtcC3NNPF3OEbdK23PZQW-ia57QxV4Llk7v_9HG6Ht4EFABe0aAlZhEALw_wcB | 2,95 €|
+|![image](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/assets/148632510/49f7c3ee-893f-472c-8295-112737e02a60) | DHT22 humidity and temperature sensor| https://eu.robotshop.com/es/products/dht22-temperature-humidity-sensor?%20_gl=1*x1xww6*_up*MQ..&gclid=Cj0KCQiAoeGuBhCBARIsAGfKY7zt4lGBBzL5W1FGmKmtYYcLwor4nTV0EWnDHFL52kem3NKnSJv13vYaAqKYEALw_wcB | 7,49 €|
+|![image](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/assets/148632510/3bac220b-56c5-45f9-97d6-7bc834eaad6f) | SFH 203 P Photodiode | https://www.digikey.es/es/products/detail/ams-osram-usa-inc/SFH-203-P/1893875 | 1 - 0,92 € |
+|![image](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/assets/148632510/537e5a60-5057-4fd6-8ab6-7c92300786e6) |WS2812B Module Circuit with RGB Led| https://www.shoptronica.com/led-bicolor-tricolor-rgb/3959-circuito-modulo-ws2812b-con-led-rgb-0689593949912.html?mot_tcid=8e6c0a71-d75a-4b1b-a4d5-eda81f9adca2#/63-opciones_color-blanco | 1 - 0,2610 €|
 
+The datasheets for these components can be found in the following folder: [Datasheets](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/tree/main/Electronic/Datasheets)
 
-## mechanical-components
+## MECHANICAL PART
+  ### 3D printed parts
 For the movement, we use a mechanism that consists of a worm gear that rotates by a stepper motor, attached to the worm gear are four gears, that have the petals of the plant, these ones rotate and the petals move upside down mimicking the movement of the aperture of a plant in the wild.
 Here below you can see all the parts needed to be able to make this mechanism and an explanation:
 
@@ -49,9 +51,18 @@ WORM GEAR, on the lower end, has a dent to be able to put together the stepper m
 HOLDER FOR THE GEARS TO MOVE WITH THE WORM GEAR, this piece holds together the center of the worm gear vertically, and in each of the four sites it goes a GEAR with a petal
 
 ![alt text](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/blob/main/Images/shield_2.png)
+  ### Hardware parts
+  
+## ELECTRICAL PART
+  ### Datasheets
+  You can find the datasheets for the following components in the [datasheets folder](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/tree/main/Electronic/Datasheets):
+  - ESP32
+  - Photodiodes
+  - LEDs RGB
+  - DHT22 humidity and temperature sensor
+  ### Electric scheme
+  |[Schematic_Weather_Station](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/assets/148632510/8155c4e1-e35f-4c48-a91c-fe21f4f4bea0)
+  [![Electric Scheme](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/blob/main/Electronic/Schematics/Schematic_Weather_Station.png)](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/tree/main/Electronic/Schematics)
 
-  ### 3d-printed-parts
-  ### hardware-parts
-## electrical-components
-  ### electronic-blueprints
-## code
+  
+## PROGRAMMING PART
