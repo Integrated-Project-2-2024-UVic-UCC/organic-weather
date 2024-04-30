@@ -12,6 +12,7 @@ Because it is still in process, below you can see the layout of the plant:
 If you are interested in carrying out this project, we invite you to the following sections!
 
 ## README STRUCTURE
+- [Promotional Video](#promotional-video)
 - [Materials](#materials)
 - [Mechanical part](#mechanical-part)
     - [ 3D printed parts](#3d-printed-parts)
@@ -21,7 +22,8 @@ If you are interested in carrying out this project, we invite you to the followi
     - [Electric scheme](#electric-scheme)
 - [Programming Part](#programming-part)
 
-    
+## PROMOTIONAL VIDEO
+
 ## MATERIALS
 Before starting with the mechanical part, we will show you the list of materials that have been used and the links where you can buy it:
 |Component|Description|Link|Price (€)|
