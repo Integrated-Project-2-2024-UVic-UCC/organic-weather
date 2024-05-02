@@ -17,12 +17,14 @@
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_MOSI, TFT_CLK, TFT_RST, TFT_MISO);
 DHT dht(dht_pin, DHT22);
 
+
 int value;
 float temperature;
 float humidity;
 
 void setup() {
   Serial.begin(9600);
+
   Serial.println("ILI9341 Test!"); 
 
   dht.begin();
@@ -38,10 +40,11 @@ void setup() {
 }
 
 void loop() {
+
   temperature = dht.readTemperature();
   humidity = dht.readHumidity();
   data_screen();
-  delay(1000);
+  delay(10000);
 }
 
 unsigned long welcome() {
