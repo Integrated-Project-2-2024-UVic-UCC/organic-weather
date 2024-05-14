@@ -30,8 +30,13 @@ DHT dht(dht_pin, DHT22);
 ESP32Time rtc; 
 
 //__________________________________WiFi PARAMETERS
+<<<<<<< Updated upstream
 const char* ssid = "";
 const char* password = "";
+=======
+const char* ssid = "win12";
+const char* password = "impact09";
+>>>>>>> Stashed changes
 
 //__________________________________VARIABLES
 float lat = 41.9301200, lon = 2.2548600; //not used as variable
@@ -162,7 +167,11 @@ String getOpenWeatherData(){ //the function that returns a String that do the AP
     "https://api.openweathermap.org/data/2.5/weather" \
     "?lat=41.9301200&lon=2.2548600" \ 
     "&units=metric&lang=en" \
+<<<<<<< Updated upstream
     "&appid=");
+=======
+    "&appid=179f9a1a184ba4f7ba08aecf2b281bca");
+>>>>>>> Stashed changes
 
     int httpCode = http.GET();
     if (httpCode <=0) {
