@@ -1,4 +1,4 @@
-int sensor = 12;
+int sensor = 34;
 int sensor_value;
 void setup() {
   Serial.begin(9600);

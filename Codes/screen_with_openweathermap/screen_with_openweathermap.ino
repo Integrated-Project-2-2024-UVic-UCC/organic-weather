@@ -162,7 +162,6 @@ String getOpenWeatherData(){ //the function that returns a String that do the AP
     "https://api.openweathermap.org/data/2.5/weather" \
     "?lat=41.9301200&lon=2.2548600" \ 
     "&units=metric&lang=en" \
-    "&appid="\
     "&appid=");
 
     int httpCode = http.GET();

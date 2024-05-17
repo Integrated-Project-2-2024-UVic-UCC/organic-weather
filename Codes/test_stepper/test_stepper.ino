@@ -1,11 +1,13 @@
-#define IN1  14
-#define IN2  27
-#define IN3  26
-#define IN4  25
+#define IN1  17
+#define IN2  16
+#define IN3  4
+#define IN4  2
 
 float current_step = 0.0; //tells the current position in steps referenced at the 0º at the start
 float steps;              //steps needed to achieve the rev_pos, could be negative
 int t = 0;
+char input = ' ';
+float value = 0;
 
 //for max torque
 int step_torque [5][4] =
@@ -52,9 +54,10 @@ void position(float rev_pos){
     }    
     current_step+=t;
     t=0;
+    Serial.println("Finish");
     Serial.print("Current step: ");
     Serial.println(current_step);
-    delay(1000);
+    delay(100);
   }
 
 
@@ -75,7 +78,7 @@ void position(float rev_pos){
     t=0;
     Serial.print("Current step: ");
     Serial.println(current_step);
-    delay(1000);
+    delay(100);
   }
 
   //turn of all the bobines
@@ -91,12 +94,21 @@ void setup(){
 }
  
 void loop(){ 
-  Serial.println("Posicio 0.25");
-  position(0.25);
-  delay(500);
-
-  Serial.println("Posicio 0");
-  position(0.0);
-  delay(500);
-
+  if(Serial.available() != 0){
+    input = Serial.read();
+    if(input == '+'){
+      value += 0.01;
+    }
+    if(input == '-'){
+      value = value-0.01;
+    }
+    if(input == 'R'){
+      value = 0;
+    }
+    if(input == '1'){
+      value += 0.05;
+    }
+    
+    position(value);
+  }
 }
