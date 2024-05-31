@@ -30,8 +30,8 @@ DHT dht(dht_pin, DHT22);
 ESP32Time rtc; 
 
 //__________________________________WiFi PARAMETERS
-const char* ssid = "";
-const char* password = "";
+const char* ssid = "organic";
+const char* password = "organicweather";
 
 //__________________________________VARIABLES
 float lat = 41.9301200, lon = 2.2548600; //not used as variable
@@ -162,7 +162,7 @@ String getOpenWeatherData(){ //the function that returns a String that do the AP
     "https://api.openweathermap.org/data/2.5/weather" \
     "?lat=41.9301200&lon=2.2548600" \ 
     "&units=metric&lang=en" \
-    "&appid=");
+    "&appid=xxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 
     int httpCode = http.GET();
     if (httpCode <=0) {
