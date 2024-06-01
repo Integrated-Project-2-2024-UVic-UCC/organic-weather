@@ -6,6 +6,11 @@
 const char* ssid = "ssid";
 const char* password = "password";
 
+const char* city;
+float main_temp;
+float temp_max;
+float temp_min;
+
 void initWiFi(){
   WiFi.mode(WIFI_STA); //set the esp to a wifi station
   WiFi.begin(ssid, password);
@@ -43,13 +48,20 @@ void visualizeJson(String input) { //input payload, the answer of the openweathe
     return;
   } 
 
-  const char* city = doc["name"]; // "Vic"
+  const char* city_in = doc["name"]; // "Vic"
+  city = city_in;
+
   JsonObject main = doc["main"];
-  float main_temp = main["temp"];
+  JsonObject weatehr = doc["weather"];
 
-  Serial.println();
-  Serial.println(main_temp);
+  float main_temp_in = main["temp"];
+  main_temp = main_temp_in;
 
+  float temp_min_in = main["temp_min"];
+  temp_min = temp_min_in;
+
+  float temp_max_in = main["temp_max"];
+  temp_max = temp_max_in;
 }
 
 String getOpenWeatherData(){ //the function that returns a String that do the API call.
