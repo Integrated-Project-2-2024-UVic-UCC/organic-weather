@@ -24,7 +24,6 @@
 #include "thunder.h"
 #include "mist.h"
 #include "cozy.h"
-#include "freeze.h"
 
 //******************************************************************************END
 
@@ -110,7 +109,7 @@ void refill_temp_box(float var, int y0, int yf, int x0, int amplitude){
     tft.setCursor(x,y); tft.println(".");
     }
   }
-}  v
+}  
 
 unsigned long welcome_screen() {
   unsigned long start;
@@ -166,6 +165,8 @@ unsigned long background_screen(){
   tft.setTextColor(ILI9341_BLACK); tft.setTextSize(1.9); tft.setCursor(320/2,((230-35)*40/45+35)+2); tft.println(0);
   tft.setTextColor(ILI9341_BLUE);  tft.setTextSize(1.9); tft.setCursor(320/2-4,230-1+2); tft.println(-5);
 
+  tft.drawRGBBitmap(2+8+8,240/2+5,(uint16_t *)cozyBitmap, IM_WIDTH, IM_HEIGHT);
+
   return micros() - start;
 }
 
@@ -191,13 +192,6 @@ unsigned long data_screen() {
   //________________________________________________________________HUMIDITY INSIDE LEVEL
   tft.setTextColor(ILI9341_WHITE);  refill_box(humidity_prev, 35, 230, 2, 8); //CLEAN REFILL
   tft.setTextColor(ILI9341_BLUE);   refill_box(humidity, 35, 230, 2, 8);//REFILL 
-
-
-  if(temperature < 10.0){
-    tft.drawRGBBitmap(2+8+8,240/2+5,(uint16_t *)freezeBitmap, IM_WIDTH, IM_HEIGHT);
-  }else{
-    tft.drawRGBBitmap(2+8+8,240/2+5,(uint16_t *)cozyBitmap, IM_WIDTH, IM_HEIGHT);
-  }
 
 
   //_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_____CITY

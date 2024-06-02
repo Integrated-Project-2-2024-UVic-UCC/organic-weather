@@ -355,11 +355,11 @@ void visualizeJson(String input) { //input payload, the answer of the openweathe
   //doc stores the json, doc is the root
   DeserializationError error = deserializeJson(doc, input);
 
-  if (error){ //if it can not deserialize the 'input'
+  //if (error){ //if it can not deserialize the 'input'
     //Serial.print("deserializeJson() failsed: ");
     //Serial.println(error.c_str());
-    return;
-  } 
+  //  return;
+  //} 
 
   const char* city_in = doc["name"];
   city = city_in;
@@ -390,16 +390,11 @@ String getOpenWeatherData(){ //the function that returns a String that do the AP
     "https://api.openweathermap.org/data/2.5/weather" \
     "?lat=41.9301200&lon=2.2548600" \ 
     "&units=metric&lang=en" \
-    "&appid=xxxxxxxxxxxxxxxxxxxx");
+    "&appid=179f9a1a184ba4f7ba08aecf2b281bca");
 
     int httpCode = http.GET();
-    if (httpCode <=0) {
-      Serial.printf("[HTTP] GET... failed, error: %s\n", http.errorToString(httpCode).c_str());
-    }else{
-      Serial.printf("[HTTP] GET... code: %d\n", httpCode);
-      if (httpCode == HTTP_CODE_OK){
-        result = http.getString();
-      }
+    if (httpCode == HTTP_CODE_OK){
+      result = http.getString();
     }
     http.end(); //ends the comunication of http
     return result;
@@ -453,7 +448,7 @@ void data_acquire(){
 
   if (WiFi.status() == WL_CONNECTED) {
     String payload = getOpenWeatherData();
-    Serial.print(payload);
+    //Serial.print(payload);
     visualizeJson(payload);
   }
 }
@@ -474,7 +469,7 @@ void data_prev_reload(){
 
 
 void setup() {
-  Serial.begin(115200);
+  //Serial.begin(115200);
 
   //_________RGB to green for welcome
   pixels.begin();
@@ -503,7 +498,7 @@ void setup() {
   position(-145); 
   current_step = 0.0;
 
-  Serial.println(rtc.getTime("%d/%m/%Y %H:%M:%S"));
+  //Serial.println(rtc.getTime("%d/%m/%Y %H:%M:%S"));
 
   //first data sreen
   if(WiFi.status() != WL_CONNECTED){
@@ -531,10 +526,10 @@ void loop() {
 
   if((unsigned long)(current_millis - previous_millis_screen) >= interval_screen){
 
-    rtc.getTime("%d/%m/%Y %H:%M:%S");
     if(WiFi.status() != WL_CONNECTED){
       initWiFi();
     }
+    rtc.getTime("%d/%m/%Y %H:%M:%S");
     data_acquire();
     data_screen();
     data_prev_reload();
