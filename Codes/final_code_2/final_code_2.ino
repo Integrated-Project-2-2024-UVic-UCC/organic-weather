@@ -402,9 +402,9 @@ void update_RGB(){
     B = map(temperature,-5.0,0,147,255);
   }else if(temperature>=0.0 & temperature<10.0){ //0 (50,0,255)
     R = map(temperature,0.0,10.0,50,0);
+  }else if(temperature>=10.0 & temperature<20.0){ //10 (0,255,128)
     G = map(temperature,0.0,10.0,0,255);
     B = map(temperature,0.0,10.0,255,128);    
-  }else if(temperature>=10.0 & temperature<20.0){ //10 (0,255,128)
     R = map(temperature,10.0,20.0,0,128);
     G = map(temperature,10.0,20.0,255,255);
     B = map(temperature,10.0,20.0,128,0); 
