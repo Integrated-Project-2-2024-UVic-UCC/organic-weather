@@ -68,3 +68,24 @@ HOLDER FOR THE GEARS TO MOVE WITH THE WORM GEAR, this piece holds together the c
 
   
 ## PROGRAMMING PART
+The libraries used are located in the Code folder, as a folder called LIBRARIES. 
+Here is explained synthesized the main workflow of the code. 
+
+### Setup
+For inicialize the plant:
+- Starts the screen with the welcome screen
+- Reset the position of the stepper motor
+- Starts the WiFi connection
+- Configure the Real Time Clock of the ESP32
+- Do a first run of two main processes
+  - Light sensing and motor position
+  - Data adquire and data display
+
+### Loop
+When the system has been started up correctly, the main loop only execute two subprocesses:
+- Light sensing and motor position
+- Data aquire and data display
+This two subprocesses have diferent delay time, controlled by comparison of the millis() function.
+For the aperture of the leaves needs a fast frequency, is set to 0,5 seconds.
+For the data aquire and data display doesn't need a high frequency because the data may not vary significantly. The delay is set to 30 seconds. 
+
