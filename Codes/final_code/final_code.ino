@@ -1,4 +1,4 @@
-//_____________________________________________________________________________LIBRARIES
+//_____________________________________________________________________________LIBRARIES 1472645
 #include "SPI.h"
 #include "Adafruit_GFX.h"
 #include "Adafruit_ILI9341.h"
@@ -22,7 +22,7 @@
 #include "rain.h"
 #include "snow.h"
 #include "thunder.h"
-#include "mist.h"
+//#include "mist.h"
 #include "cozy.h"
 
 //******************************************************************************END
@@ -36,7 +36,7 @@ float temperature;
 String date_prev; String time_prev;
 String sky;
 
-float lat = 41.9301200, lon = 2.2548600; //not used as variable
+//float lat = 41.9301200, lon = 2.2548600; //not used as variable
 int humidity_city;
 float humidity, main_temp, temp_max, temp_min;
 const char*city;
@@ -234,7 +234,7 @@ unsigned long data_screen() {
     }else if(sky == "snow"){
       tft.drawRGBBitmap(320/2+2+15+8+10,240/2+5,(uint16_t *)snowBitmap, IM_WIDTH, IM_HEIGHT);
     }else if(sky == "mist"){
-      tft.drawRGBBitmap(320/2+2+15+8+10,240/2+5,(uint16_t *)mistBitmap, IM_WIDTH, IM_HEIGHT); 
+      tft.drawRGBBitmap(320/2+2+15+8+10,240/2+5,(uint16_t *)suncloudBitmap, IM_WIDTH, IM_HEIGHT); 
     }
 
   }
@@ -247,7 +247,7 @@ unsigned long data_screen() {
 //_____________________________________________________________________________PHOTODIODE
 #define pd_1 34
 #define pd_2 32
-int luminosity, luminosity_prev = 0, luminosity_current;
+char luminosity, luminosity_prev = 0, luminosity_current;
 
 void get_luminosity(){
   luminosity_prev = luminosity;
@@ -265,10 +265,10 @@ void get_luminosity(){
 #define IN3  4
 #define IN4  26
 
-float current_step = 0.0; //tells the current position in steps referenced at the 0º at the start
-float steps;              //steps needed to achieve the rev_pos, could be negative
+int current_step = 0; //tells the current position in steps referenced at the 0º at the start
+int steps;              //steps needed to achieve the rev_pos, could be negative
 int t = 0;
-int period = 25;          // ms for ajust the speed
+char period = 25;          // ms for ajust the speed
 
 int step_eq [5][4] = { //for more torque needed, could be used when lifting weight
   {1, 1, 0, 0},
@@ -278,25 +278,21 @@ int step_eq [5][4] = { //for more torque needed, could be used when lifting weig
   {0, 0, 0, 0}
 };
 
-void position(float rev_pos){
+void position(int rev_pos){
   //calculate the steps needed to do, in reference to the actual position
   steps = 0;
-  steps = (rev_pos/1000.0) * 2048.0 - current_step;
+  t = 0;
+  steps = rev_pos * 2.0480 - current_step;
   steps = round(steps);
 
-  Serial.print("Steps needed: ");  Serial.println(steps);
-
-  if(steps>0){ //___________________________________counter clock wise - positive___________________________________
-    t = 0;  
-    
+  if(steps>0){ //___________________________________counter clock wise - positive___________________________________  
     while(t < steps){
-      for (int i = 0; i < 4; i++){
+      for (char i = 0; i < 4; i++){
         digitalWrite(IN1, step_eq[i][0]);
         digitalWrite(IN2, step_eq[i][1]);
         digitalWrite(IN3, step_eq[i][2]);
         digitalWrite(IN4, step_eq[i][3]);
         delay(period);
-        //Serial.println(t);
         t++;
       }
     }    
@@ -304,15 +300,13 @@ void position(float rev_pos){
 
 
   if(steps<0){ //______________________________________clock wise - negative______________________________________
-    t=0;
     while(t > steps){ //steps is a negative value
-      for (int i = 3; i>=0; i--){
+      for (char i = 3; i>=0; i--){
         digitalWrite(IN1, step_eq[i][0]);
         digitalWrite(IN2, step_eq[i][1]);
         digitalWrite(IN3, step_eq[i][2]);
         digitalWrite(IN4, step_eq[i][3]);
         delay(period);
-        //Serial.println(t);
         t--;
       }
     }
@@ -320,7 +314,6 @@ void position(float rev_pos){
   }
   current_step+=t;
   t=0;
-  Serial.print("Finish -> ");  Serial.print("Current step: ");  Serial.println(current_step);
 
   //turn of all the bobines
   digitalWrite(IN1, step_eq[4][0]);
@@ -336,7 +329,7 @@ void position(float rev_pos){
 const char* ssid = "organic";
 const char* password = "organicweather";
 void initWiFi(){
-  int w = 0;
+  char w = 0;
   WiFi.mode(WIFI_STA); //set the esp to a wifi station
   WiFi.begin(ssid, password);
   Serial.println("Connecting to WiFi..");
@@ -415,14 +408,14 @@ String getOpenWeatherData(){ //the function that returns a String that do the AP
 //*****************************************************************************END
 
 
-
 //_____________________________________________________________________________LED RGB
-int R, G, B;
+char R, G, B;
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(12, 25, NEO_GRB + NEO_KHZ800);
 void update_RGB(){
   if(temperature>=-5.0 & temperature<0.0){
     R = map(temperature,-5.0,0,255,100);
     G = map(temperature,-5.0,0,20,0);
+
     B = map(temperature,-5.0,0,147,255);
   }else if(temperature>=0.0 & temperature<10.0){
     R = map(temperature,0.0,10.0,50,0);
@@ -455,7 +448,7 @@ void data_acquire(){
   humidity = dht.readHumidity();
 
   update_RGB();
-  for(int n = 0; n <= 11; n++){
+  for(char n = 0; n <= 11; n++){
     pixels.setPixelColor(n,R,G,B);
   }
   pixels.show(); 
@@ -485,7 +478,7 @@ void setup() {
 
   //_________RGB to green for welcome
   pixels.begin();
-  for(int n = 0; n <= 11; n++){
+  for(char n = 0; n <= 11; n++){
     pixels.setPixelColor(n,0,255,0);
   }
   pixels.show();

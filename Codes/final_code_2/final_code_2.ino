@@ -1,6 +1,6 @@
-//_____________________________________________________________________________LIBRARIES
+//_____________________________________________________________________________LIBRARIES 1438557
 #include "SPI.h"                //Serial Peripheral Interface Bus
-#include "Adafruit_GFX.h"       //
+//#include "Adafruit_GFX.h"       //
 #include "Adafruit_ILI9341.h"   //Controller of the screen
 #include "WiFi.h"               //WiFi capability of the ESP32
 #include "HTTPClient.h"         //For do request at servers
@@ -22,7 +22,7 @@
 #include "rain.h"
 #include "snow.h"
 #include "thunder.h"
-#include "mist.h"
+//#include "mist.h"
 #include "cozy.h"
 //******************************************************************************END
 
@@ -35,15 +35,15 @@ String date_prev; String time_prev; String sky;
 const char*city;
 int humidity_city, humidity_city_prev;
 
-float lat = 41.9301200, lon = 2.2548600; //not used as variable
+//float lat = 41.9301200, lon = 2.2548600; //not used as variable
 
 //counter of millis
 unsigned long previous_millis_step = 0; 
 unsigned long previous_millis_screen = 0; 
 
 //interval between refresh the steps or the screen
-unsigned long interval_step = 500;
-unsigned long interval_screen = 30000;
+unsigned int interval_step = 500;
+unsigned int interval_screen = 30000;
 
 //*****************************************************************************END
 
@@ -126,14 +126,7 @@ void refill_temp_box(float var, int y0, int yf, int x0, int amplitude){
 
 unsigned long welcome_screen() {
   unsigned long start;
-  tft.drawRGBBitmap(0,0,
-    #if defined(__AVR__) || defined(ESP8266)
-        logoBitmap, 
-    #else
-        (uint16_t *)logoBitmap,
-    #endif
-        LOGO_WIDTH, LOGO_HEIGHT);
-  initWiFi();
+  tft.drawRGBBitmap(0,0,(uint16_t *)logoBitmap, LOGO_WIDTH, LOGO_HEIGHT);
   return micros() - start;
 }
 
@@ -249,7 +242,7 @@ unsigned long data_screen() {
     }else if(sky == "snow"){
       tft.drawRGBBitmap(320/2+2+15+8+10,240/2+5,(uint16_t *)snowBitmap, IM_WIDTH, IM_HEIGHT);
     }else if(sky == "mist"){
-      tft.drawRGBBitmap(320/2+2+15+8+10,240/2+5,(uint16_t *)mistBitmap, IM_WIDTH, IM_HEIGHT); 
+      tft.drawRGBBitmap(320/2+2+15+8+10,240/2+5,(uint16_t *)suncloudBitmap, IM_WIDTH, IM_HEIGHT); 
     }
 
   }
@@ -265,10 +258,10 @@ unsigned long data_screen() {
 #define IN3  4
 #define IN4  26
 
-float current_step = 0.0; //tells the current position in steps referenced at the 0º at the start
-float steps;              //steps needed to achieve the rev_pos, could be negative
+int current_step = 0; //tells the current position in steps referenced at the 0º at the start
+int steps;              //steps needed to achieve the rev_pos, could be negative
 int t = 0;
-int period = 25;          // ms for ajust the speed
+char period = 25;          // ms for ajust the speed
 
 int step_eq [5][4] = { //for more torque needed, could be used when lifting weight
   {1, 1, 0, 0},
@@ -281,14 +274,13 @@ int step_eq [5][4] = { //for more torque needed, could be used when lifting weig
 void position(int rev_pos){
   //calculate the steps needed to do, in reference to the actual position
   steps = 0;
-  steps = (rev_pos/1000.0) * 2048.0 - current_step;
+  t = 0;
+  steps = rev_pos * 2.0480 - current_step;
   steps = round(steps);
 
   if(steps>0){ //___________________________________counter clock wise - positive___________________________________
-    t = 0;  
-    
     while(t < steps){
-      for (int i = 0; i < 4; i++){
+      for (char i = 0; i < 4; i++){
         digitalWrite(IN1, step_eq[i][0]);
         digitalWrite(IN2, step_eq[i][1]);
         digitalWrite(IN3, step_eq[i][2]);
@@ -301,9 +293,8 @@ void position(int rev_pos){
 
 
   if(steps<0){ //______________________________________clock wise - negative______________________________________
-    t=0;
     while(t > steps){ //steps is a negative value
-      for (int i = 3; i>=0; i--){
+      for (char i = 3; i>=0; i--){
         digitalWrite(IN1, step_eq[i][0]);
         digitalWrite(IN2, step_eq[i][1]);
         digitalWrite(IN3, step_eq[i][2]);
@@ -315,8 +306,6 @@ void position(int rev_pos){
 
   }
   current_step+=t;
-  t=0;
-
   //turn of all the bobines
   digitalWrite(IN1, step_eq[4][0]);
   digitalWrite(IN2, step_eq[4][1]);
@@ -331,7 +320,7 @@ void position(int rev_pos){
 const char* ssid = "organic";
 const char* password = "organicweather";
 void initWiFi(){
-  int w = 0;
+  char w = 0;
   WiFi.mode(WIFI_STA); //set the esp to a wifi station
   WiFi.begin(ssid, password);
   while(WiFi.status() != WL_CONNECTED){
@@ -404,7 +393,7 @@ String getOpenWeatherData(){ //the function that returns a String that do the AP
 
 
 //_____________________________________________________________________________LED RGB
-int R, G, B;
+char R, G, B;
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(12, 25, NEO_GRB + NEO_KHZ800);
 void update_RGB(){
   if(temperature>=-5.0 & temperature<0.0){ //-5 (255,20,147)
@@ -441,7 +430,7 @@ void data_acquire(){
   humidity = dht.readHumidity();
 
   update_RGB();
-  for(int n = 0; n <= 11; n++){
+  for(char n = 0; n <= 11; n++){
     pixels.setPixelColor(n,R,G,B);
   }
   pixels.show(); 
@@ -473,7 +462,7 @@ void setup() {
 
   //_________RGB to green for welcome
   pixels.begin();
-  for(int n = 0; n <= 11; n++){
+  for(char n = 0; n <= 11; n++){
     pixels.setPixelColor(n,0,255,0);
   }
   pixels.show();
