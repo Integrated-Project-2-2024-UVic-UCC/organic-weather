@@ -45,7 +45,7 @@ Flower mechanism
 As a first option, it was proposed to move the petals using four gears, each connected to a petal, and a worm gear in the center, connected to the motor. This mechanism was to allow the petals to open and close depending on the light intensity of the environment. The worm gear turned and had to engage with the gears to make them rotate, which worked in the simulation. However, when printed, the system generated too much friction, which caused constant breakage and malfunction. Because of these friction and unreliability problems, the design was eventually discarded.
 After this, a new design was started. This innovative design does not have gears or worm screw, in short it has two pieces without considering the petals. The first piece will be a central piece, one end of which will be connected to the stepper motor that will carry out the movement and the other part is where the petals will be hooked. This part will be like a crown where the petals will be placed, that is, they will fit together, allowing the petal to have complete movement. We could imagine the movement as that of a hinge. The second piece will be both functional and visual. We can see that visually it will be a calyx of a flower and inside it will have the shape of a coup. Its function will be that when the central piece lowers, the petals, when resting on the calyx, begin to close on the inside of the cup, so when the central piece has reached its minimum, the flower is completely closed. 
 
-![image]https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/blob/main/Images/planta_2.PNG
+![image](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/blob/main/Images/planta_2.PNG)
 
 
   ### Hardware parts
