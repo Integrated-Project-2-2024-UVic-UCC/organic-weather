@@ -7,8 +7,8 @@ The "Organic Weather Station" blends botanical aesthetics with robotics, creatin
 - **Remote Weather Updates**: Connects with a Telegram chat to retrieve and display weather conditions from any specified location.
 - **Ambient LED Effects**: Incorporates LEDs within the petals that shift colors based on the ambient room temperature.
 
-Because it is still in process, below you can see the layout of the plant:
-![image](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/assets/148632510/3a7dbbe2-9f96-4733-8f5a-11ae46fb1943)
+[image](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/blob/main/Images/planta_1.PNG)
+
 If you are interested in carrying out this project, we invite you to the following sections!
 
 ## README STRUCTURE
