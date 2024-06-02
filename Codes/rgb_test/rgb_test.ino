@@ -4,7 +4,7 @@
 #endif
 float temperature;
 int R, G, B;
-Adafruit_NeoPixel pixels = Adafruit_NeoPixel(12, 13, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel pixels = Adafruit_NeoPixel(12, 25, NEO_GRB + NEO_KHZ800);
 
 void update_RGB(){
   if(temperature>=-5.0 & temperature<0.0){
@@ -35,13 +35,25 @@ void setup() {
 }
 
 void loop() {
+  temperature = -5.0;
   for(int i = -5; i<=40; i++){
     temperature=temperature+1.0;
     update_RGB();
-    for(int n = 0; n <= 3; n++){
+    for(int n = 0; n <= 11; n++){
       pixels.setPixelColor(n,R,G,B);
     }
     pixels.show();
-    delay(150);
+    delay(260);
   }
+  temperature = 40.0;
+  for(int i = 40; i>=-5; i--){
+    temperature=temperature-1.0;
+    update_RGB();
+    for(int n = 0; n <= 11; n++){
+      pixels.setPixelColor(n,R,G,B);
+    }
+    pixels.show();
+    delay(260);
+  }
+
 }
