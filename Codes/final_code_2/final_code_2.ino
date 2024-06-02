@@ -512,7 +512,7 @@ void loop() {
 
     previous_millis_step = millis();
   }
-
+  
   if((unsigned long)(current_millis - previous_millis_screen) >= interval_screen){
 
     if(WiFi.status() != WL_CONNECTED){
