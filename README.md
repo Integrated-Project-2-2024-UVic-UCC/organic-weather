@@ -92,6 +92,7 @@ For inicialize the plant:
 When the system has been started up correctly, the main loop only execute two subprocesses:
 - Light sensing and motor position
 - Data aquire and data display
+  
 This two subprocesses have diferent delay time, controlled by comparison of the millis() function.
 For the aperture of the leaves needs a fast frequency, is set to 0,5 seconds.
 For the data aquire and data display doesn't need a high frequency because the data may not vary significantly. The delay is set to 30 seconds. 
