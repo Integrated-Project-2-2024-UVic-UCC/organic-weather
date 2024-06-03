@@ -53,6 +53,10 @@ After this, a new design was started. This innovative design does not have gears
 | FLOWER PETAL | Six of these complete the flower, with the hinge on the bottom it connects to the Inner Part, to be able to open and close | ![image](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/blob/main/Images/lower_petal.png) |
 | LEAVES | The greener is the support of the leaf that it is attached to the stem of the plant. We have two, one on each side, the left and the right. | ![image](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/blob/main/Images/leaves.png) |
 
+These are the parts of the mechanism inside the pot, that we use:
+
+![image](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/blob/main/Images/esquematic%20movement.png)
+
   ### Hardware parts
   
 ## ELECTRICAL PART
