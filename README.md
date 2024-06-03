@@ -75,6 +75,9 @@ These are the parts of the mechanism inside the pot, that we use:
 The libraries used are located in the Code folder, as a folder called LIBRARIES. 
 Here is explained synthesized the main workflow of the code. 
 
+### Workflow of the HTTP Client 
+![image](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/blob/main/Codes/HTTP%20client%20workflow.png?raw=true)
+
 ### Setup
 For inicialize the plant:
 - Starts the screen with the welcome screen
