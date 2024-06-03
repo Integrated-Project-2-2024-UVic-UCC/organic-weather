@@ -67,7 +67,7 @@ These are the parts of the mechanism inside the pot, that we use:
   - LEDs RGB
   - DHT22 humidity and temperature sensor
   ### Electric scheme
-  ![Schematic_Weather_Station](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/assets/148632510/ed1f33c1-2df0-4c84-ae69-e56b52e85f7e))
+  ![Schematic_Weather_Station](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/blob/main/Electronic/Schematics/Schematic_Weather_Station))
   [![Electric Scheme]([https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/blob/main/Electronic/Schematics/Schematic_Weather_Station.png](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/blob/main/Electronic/Schematics/Schematic_Integrated%20Project_2024-04-24.png))](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/tree/main/Electronic/Schematics)
 
   
