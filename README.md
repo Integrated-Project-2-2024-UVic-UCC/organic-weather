@@ -23,7 +23,8 @@ If you are interested in carrying out this project, we invite you to the followi
 - [Programming Part](#programming-part)
 
 ## PROMOTIONAL VIDEO
-
+![Video Screenshot](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/blob/main/Images/ScreenShot.png)
+[Promotional video](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/blob/main/Images/OrganicWeather_PromotionalVideo.mp4)
 ## MATERIALS
 Before starting with the mechanical part, we will show you the list of materials that have been used and the links where you can buy it:
 |Component|Description|Link|Price (€)|
