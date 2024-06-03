@@ -78,6 +78,9 @@ Here is explained synthesized the main workflow of the code.
 ### Workflow of the HTTP Client 
 ![image](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/blob/main/Codes/HTTP%20client%20workflow.png?raw=true)
 
+### Global/Loop workflow 
+![image](https://github.com/Integrated-Project-2-2024-UVic-UCC/organic-weather/blob/main/Codes/global%20workflow.png)
+
 ### Setup
 For inicialize the plant:
 - Starts the screen with the welcome screen
